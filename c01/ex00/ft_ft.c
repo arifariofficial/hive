@@ -7,6 +7,7 @@ int main()
     int num;
 
     ft_ft(&num);
+    printf("%d", num);
     return 0;
 }
 
