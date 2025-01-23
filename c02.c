@@ -125,6 +125,99 @@ int ft_str_is_uppercase(char *str)
     return 1; // Return 1 if all characters are uppercase
 }
 
+/* C0206 Create a function that returns 1 if the string given as a parameter contains only printable characters, and 0 if it contains any other character */
+int ft_str_is_printable(char *str)
+{
+    int i = 0;
+
+    // If the string is empty, return 1
+    if (str[i] == '\0')
+        return 1;
+
+    // Iterate through the string
+    while (str[i] != '\0')
+    {
+        // Check if the character is not printable
+        if (str[i] < 32 || str[i] > 126)
+            return 0;
+        i++;
+    }
+    // If all characters are printable, return 1
+    return 1;
+}
+
+/* C0207 Create a function that transforms every letter to uppercase */
+char *ft_strupcase(char *str) {
+    int i = 0;
+
+    while (str[i] != '\0') {
+        // Check if the character is a lowercase letter
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            // Transform to uppercase by subtracting 32
+            str[i] -= 32;
+        }
+        i++;
+    }
+
+    return str;
+}
+
+/* C0208 Create a function that transforms every letter to lowercase */
+char *ft_strlowcase(char *str) {
+    int i = 0;
+
+    while (str[i] != '\0') {
+        // Check if the character is an uppercase letter
+        if (str[i] >= 'A' && str[i] <= 'Z') {
+            // Transform to lowercase by adding 32
+            str[i] += 32;
+        }
+        i++;
+    }
+
+    return str;
+}
+
+/* 
+Create a function that capitalizes the first letter of each word and transforms all other letters to lowercase.
+• A word is a string of alphanumeric characters.
+• Here’s how it should be prototyped :
+char *ft_strcapitalize(char *str);
+• It should return str.
+• For example:
+salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un
+• Becomes:
+Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un
+ */
+
+
+int ft_is_alphanumeric(char c) {
+    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+}
+
+char *ft_strcapitalize(char *str) {
+    int i = 0;
+    int new_word = 1; // 1 represents true, 0 represents false
+
+    while (str[i] != '\0') {
+        if (ft_is_alphanumeric(str[i])) {
+            if (new_word && str[i] >= 'a' && str[i] <= 'z') {
+                // Capitalize the first letter of a new word
+                str[i] -= 32;
+            } else if (!new_word && str[i] >= 'A' && str[i] <= 'Z') {
+                // Convert uppercase letters to lowercase if not the start of a word
+                str[i] += 32;
+            }
+            new_word = 0; // Inside a word
+        } else {
+            new_word = 1; // Non-alphanumeric character, reset for the next word
+        }
+        i++;
+    }
+    return str;
+}
+
+
 /* C0210 Reproduce the behavior of the function strlcpy (man strlcpy) */
 unsigned int ft_strlcpy(char *dest, char *src, unsigned int size) 
 {
