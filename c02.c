@@ -178,7 +178,7 @@ char *ft_strlowcase(char *str) {
     return str;
 }
 
-/* 
+/* C0209
 Create a function that capitalizes the first letter of each word and transforms all other letters to lowercase.
 • A word is a string of alphanumeric characters.
 • Here’s how it should be prototyped :
