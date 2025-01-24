@@ -69,13 +69,31 @@ void ft_rev_int_tab(int *tab, int size)
 // C02-00 Reproduce the behaviour of strcpy()
 char *ft_strcpy(char *dest, char *src)
 {
+    char *original_dest = dest;
     while (*src)
     {
         *dest = *src;
         src++;
         dest++;
     }
-    return dest;
+    *dest = '\0';
+    return original_dest;
 } 
 
 // C02-01 Reproduce the behaviour of strncpy()
+char *ft_strncpy(char *dest, char *src, unsigned int n)
+{
+    char *original_dest = dest;
+    unsigned int i = 0;
+    while (src[i] && i < n)
+    {
+        dest[i] = src[i];
+        i++;
+    }
+    while (i < n)
+    {
+        dest[i] = '\0';
+        i++;
+    }
+    return original_dest;
+}
