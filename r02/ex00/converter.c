@@ -53,8 +53,24 @@ void convert_number(char *num)
         handle_thousands(num);
     else if (len >= 7 && len <= 9)
         handle_millions(num);
+    else if (len >= 10 && len <= 12)
+        handle_billions(num);
+    else if (len >= 13 && len <= 15)
+        handle_trillions(num);
+    else if (len >= 16 && len <= 18)
+        handle_quadrillions(num);
+    else if (len >= 19 && len <= 21)
+        handle_quintillions(num);
+    else if (len >= 22 && len <= 24)
+        handle_sextillions(num);
+    else if (len >= 25 && len <= 27)
+        handle_septillions(num);
+    else if (len >= 28 && len <= 30)
+        handle_octillions(num);
+    else if (len >= 31 && len <= 33)
+        handle_nonillions(num);
+    else if (len >= 34 && len <= 36)
+        handle_decillions(num);
     else
         printf("Dict Error");
-
-    printf("\n");
 }
