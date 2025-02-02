@@ -29,36 +29,33 @@ int	input_validation(char *input)
 		else if (input[i] != ' ')
 		{
 			return (0);
-		}
-		else if (input[i] == ' ' && input[i + 1] == ' ')
-		{
-			return (0);
 		}	
 		i++;
 	}
-	return (count == 16);
+	return (count == 16 && i <= 31);
 }
 
-void parse_input(char *src, int *dest)
+void	parse_input(char *src, int *dest)
 {
-    int i = 0;    // index through the source string
-    int j = 0;    // index for filling dest array
+	int	i;
+	int	j;
 
-    while (src[i])
-    {
-        // If it's a digit between '1' and '4', store it
-        if (src[i] >= '1' && src[i] <= '4')
-        {
-            dest[j] = src[i] - '0';
-            j++;
-        }
-        i++;
-    }
+	i = 0;
+	j = 0;
+	while (src[i])
+	{
+		if (src[i] >= '1' && src[i] <= '4')
+		{
+			dest[j] = src[i] - '0';
+			j++;
+		}
+		i++;
+	}
 }
 
 void	grid_initialization(int **grid)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -76,19 +73,19 @@ void	grid_initialization(int **grid)
 
 void	print_grid(int **grid)
 {
-	int	i;
-	int	j;
-	char c;
+	int		i;
+	int		j;
+	char	c;
 
 	i = 0;
-	while(i < 4)
+	while (i < 4)
 	{
 		j = 0;
-		while( j < 4)
+		while (j < 4)
 		{
 			c = grid[i][j] + '0';
 			write(1, &c, 1);
-			if (j !=3)
+			if (j != 3)
 				write(1, " ", 1);
 			j++;
 		}
