@@ -64,7 +64,8 @@ int ft_atoi(char *str) {
     int result = 0;
 
     // Skip whitespace characters
-    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r') {
+    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r') 
+    {
         i++;
     }
 
